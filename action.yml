@@ -1,0 +1,24 @@
+name: "JSON test results reporter to Slack"
+description: "Send JSON test results to any slack channel"
+branding:
+  icon: 'upload'
+  color: 'purple'
+inputs:
+  title:
+    description: "Title of the test result which will appear in slack message"
+    required: true
+  slackbottoken:
+    description: "Token of Slack bot configured"
+    required: true
+  slackchannel:
+    description: "Channel name to post the message"
+    required: true
+  json_path:
+    description: "Filepath of json file from the root directory"
+    required: true
+  url:
+    description: "Workflow URL to share in results"
+    required: false
+runs:
+  using: "node16"
+  main: "dist/index.js"

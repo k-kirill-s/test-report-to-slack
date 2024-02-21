@@ -1,0 +1,38 @@
+# Dependency directories
+node_modules/
+
+# Output directories
+lib/
+dist/
+build/
+coverage/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# IDE/Editor files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+*.log
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# TypeScript Files
+*.tsbuildinfo
+
+# Test Report Files
+reports/
+report/
+
+# Batch Data Files
+parrot-batch-*
