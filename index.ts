@@ -28,12 +28,12 @@ function parseTestResults(jsonPath: string): TestResult {
 
 async function run() {
     try {
-        const jsonFilePath = getInput('jsonFilePath');
-        const slackBotToken = getInput('slackbottoken');
-        const slackChannel = getInput('slackchannel');
+        const jsonPath = getInput('jsonPath');
+        const slackBotToken = getInput('slackBotToken');
+        const slackChannel = getInput('slackChannel');
         const url = getInput('url', { required: false });
 
-        const { total, passed, failed, duration } = parseTestResults(jsonFilePath);
+        const { total, passed, failed, duration } = parseTestResults(jsonPath);
         let messageText = `Test Results: Total: ${total}, Passed: ${passed}, Failed: ${failed}, Duration: ${duration}ms`;
         if (url) {
             messageText += ` | Details: ${url}`;
