@@ -16,9 +16,6 @@ inputs:
   json-path:
     description: "Filepath of json file from the root directory"
     required: true
-  url:
-    description: "Workflow URL to share in results"
-    required: false
 runs:
   using: "node16"
   main: "dist/index.js"
