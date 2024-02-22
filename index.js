@@ -26,16 +26,27 @@ function getStatusEmoji(passed, total) {
     return ':x:';
 }
 
+function getUrl() {
+    const githubRepository = process.env.GITHUB_REPOSITORY;
+    const githubRunId = process.env.GITHUB_RUN_ID;
+
+    return `https://github.com/${githubRepository}/actions/runs/${githubRunId}`;
+}
+
+function getTitle() {
+    const workflowName = process.env.GITHUB_WORKFLOW;
+    const runNumber = process.env.GITHUB_RUN_NUMBER;
+
+    return `Test execution performed: ${workflowName} #${runNumber}`;
+}
+
 async function run() {
     try {
-        const title = getInput('title');
+        const title = getInput('title') || getTitle();
+        const url = getInput('url') || getUrl();
         const slackBotToken = getInput('slack-bot-token');
         const slackChannel = getInput('slack-channel');
         const jsonPath = getInput('json-path');
-
-        const githubRepository = process.env.GITHUB_REPOSITORY;
-        const githubRunId = process.env.GITHUB_RUN_ID;
-        url = `https://github.com/${githubRepository}/actions/runs/${githubRunId}`;
 
         const { total, passed, failed, duration } = parseTestResults(jsonPath);
         const statusEmoji = getStatusEmoji(passed, total);
