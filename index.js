@@ -21,13 +21,14 @@ function parseTestResults(jsonPath) {
 
 async function run() {
     try {
-        const jsonPath = getInput('jsonPath');
-        const slackBotToken = getInput('slackBotToken');
-        const slackChannel = getInput('slackChannel');
+        const title = getInput('title');
+        const slackBotToken = getInput('slack-bot-token');
+        const slackChannel = getInput('slack-channel');
+        const jsonPath = getInput('json-path');
         const url = getInput('url', { required: false });
 
         const { total, passed, failed, duration } = parseTestResults(jsonPath);
-        let messageText = `Test Results: Total: ${total}, Passed: ${passed}, Failed: ${failed}, Duration: ${duration}ms`;
+        let messageText = title + ` | Test Results: Total: ${total}, Passed: ${passed}, Failed: ${failed}, Duration: ${duration}ms`;
         if (url) {
             messageText += ` | Details: ${url}`;
         }
