@@ -1,0 +1,13 @@
+{
+  "name": "test-perort-to-slack",
+    "version": "0.1.0",
+    "description": "",
+    "main": "index.js",
+    "author": "Kirill Kaluga",
+    "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.1",
+    "@actions/github": "^6.0.0",
+    "@slack/web-api": "^7.0.2"
+  }
+}
