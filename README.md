@@ -11,7 +11,7 @@ So, to use this action please add next lines to your workflow/action:
 
 ```
 - name: JSON test results reporter to Slack
-  uses: k-kirill-s/test-report-to-slack@v0.3.0
+  uses: k-kirill-s/test-report-to-slack@v0.3.1
   if: success() || failure()
     with:
       slack-bot-token: ${{ secrets.SLACK_BOT_TOKEN }}

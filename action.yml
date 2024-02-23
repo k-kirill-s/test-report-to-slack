@@ -20,5 +20,5 @@ inputs:
     description: "Filepath of json file from the root directory"
     required: true
 runs:
-  using: "node16"
+  using: "node20"
   main: "dist/index.js"
