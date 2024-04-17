@@ -1,7 +1,7 @@
 {
   "name": "test-report-to-slack",
-    "version": "0.1.0",
-    "description": "",
+    "version": "0.3.2",
+    "description": "actions plugin for reporting playwright results to Slack",
     "main": "index.js",
     "author": "Kirill Kaluga",
     "license": "MIT",
