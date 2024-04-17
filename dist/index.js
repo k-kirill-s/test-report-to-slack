@@ -38000,9 +38000,9 @@ function parseTestResults(jsonPath) {
     const rawData = readFileSync(jsonPath, 'utf-8');
     const results = JSON.parse(rawData);
     const stats = results.stats || {};
-    const total = stats.expected || 0;
-    const passed = total - (stats.unexpected || 0);
+    const passed = stats.expected || 0;
     const failed = stats.unexpected || 0;
+    const total = passed + failed;
     const duration = Math.ceil(stats.duration / 1000) || 0;
 
     return {
@@ -38015,7 +38015,7 @@ function parseTestResults(jsonPath) {
 
 function getStatusEmoji(passed, total) {
     const ratio = passed / total;
-    if (ratio === 1) return ':heavy_check_mark:'; 
+    if (ratio === 1) return ':white_check_mark:'; 
     if (ratio > 0) return ':warning:';
     return ':x:';
 }
